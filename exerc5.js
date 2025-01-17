@@ -23,7 +23,14 @@ rl.question(`Digite um número inteiro: `, num => {
     } if (!Number.isInteger(num)) {
       console.log(`O número precisa ser inteiro`);
     } else {
-      console.log(' ');
+      let out =``;
+      if ((num % 3) === 0) {
+        out +=`fizz`;
+      }
+      if ((num % 5) === 0) {
+        out +=`buzz`;
+      }
+      console.log(out);
     }
     rl.close();
 });
