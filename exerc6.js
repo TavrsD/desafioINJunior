@@ -17,6 +17,24 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+function fibonacci(num) {
+  if (num === 0) {
+    return 0;
+  } else if (num === 1) {
+    return 1;
+  } else {
+    return fibonacci(num-1) + fibonacci(num-2);
+  }
+}
+
+function fiboSequence(num) {
+  const seq = [];
+  for (let i = 1; i <= num; i++) {
+    seq.push(fibonacci(i));
+  }
+  return seq;
+}
+
 rl.question(`Digite o numero de termos desejados para a sequência fibonacci: `, num => {
 
     if (isNaN(num)){
@@ -26,9 +44,10 @@ rl.question(`Digite o numero de termos desejados para a sequência fibonacci: `,
     } if (!Number.isInteger(num) || num < 0) {
       console.log(`O número precisa ser um inteiro positivo`);
     } else {
-      let fiboSeq = [];
-      console.log(`A sequência de fibonacci de ${num} termos é: ${fiboSeq}`);
+      const fibo = fiboSequence(num);
+      console.log(`A sequência de fibonacci de ${num} termos é: ${fibo}`);
     }
+
     rl.close();
 });
 
