@@ -14,19 +14,28 @@ Pessoa 1: Maior de idade
 Pessoa 2: Menor de idade
 (...)
 */
+const readline = require('node:readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
 function verificarIdades(bornYear) {
-    const now = 2025;
     const response = [];
-    
-    for (year of bornYear) {
-        if ((now-year) >=18) {
-            response.push("maior");
-        } else {
-            response.push("menor");
+
+    rl.question(`Digite o ano atual: `, now => {
+        
+        for (year of bornYear) {
+            if ((now-year) >=18) {
+                response.push("maior");
+            } else {
+                response.push("menor");
+            }
         }
-    }
-    for (i = 0; i < response.length; i++) {
-        console.log(`Pessoa ${i+1}: ${response[i]}`)
-    }
+        for (i = 0; i < response.length; i++) {
+                console.log(`Pessoa ${i+1}: ${response[i]}`)
+        }
+        rl.close();
+    });
 }
