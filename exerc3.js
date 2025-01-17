@@ -14,3 +14,19 @@ Pessoa 1: Maior de idade
 Pessoa 2: Menor de idade
 (...)
 */
+
+function verificarIdades(bornYear) {
+    const now = 2025;
+    const response = [];
+    
+    for (year of bornYear) {
+        if ((now-year) >=18) {
+            response.push("maior");
+        } else {
+            response.push("menor");
+        }
+    }
+    for (i = 0; i < response.length; i++) {
+        console.log(`Pessoa ${i+1}: ${response[i]}`)
+    }
+}
