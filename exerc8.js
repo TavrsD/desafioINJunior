@@ -3,6 +3,20 @@ Implemente uma função chamada countBooksInCategory que conte o
 número de livros em cada categoria e retorne um objeto com o nome
 da categoria como chave e a contagem de livros como valor.
 */
+
+function countBooksInCategory (booksArray) {
+  let response = []
+  for (i = 0; i < booksArray.length; i++) {
+    let element = booksArray[i];
+    response[i] = {
+      category: element.category,
+      quantity: element.books.length,
+    }
+  }
+  return response;
+}
+
+
 const booksByCategory = [
   {
     category: "Romance",
@@ -82,3 +96,5 @@ const booksByCategory = [
     ]
   }
 ]
+
+console.log(countBooksInCategory(booksByCategory));
