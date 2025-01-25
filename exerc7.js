@@ -18,11 +18,13 @@ const rl = readline.createInterface({
 });
 
 rl.question(`Digite a frase para verificação: `, frase => {
-  let fraseSplit = frase.trim().toLowerCase().split(" ");
-  let fraseAnalysis = fraseSplit.join("");
-  console.log(` ${frase} `);
-  console.log(` ${fraseAnalysis} `);
+  let fraseSplit = frase.trim().replace(/[,.!?-]/g,"").toLowerCase().split(" ").join("");
+  let fraseReverse = fraseSplit.split("").reverse().join(""); 
 
+  if (fraseSplit === fraseReverse) {
+    console.log(`A frase "${frase}" é um palíndromo. `);
+  } else {
+    console.log(`A frase "${frase}" não é um palíndromo. `);
+  }
     rl.close();
 });
-
