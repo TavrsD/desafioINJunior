@@ -9,7 +9,9 @@ function authors(booksArray){
   for (let i = 0; i<booksArray.length; i++) {
     let element = booksArray[i].books;
     for (let j = 0; j<element.length; j++) {
-      console.log(element[j].author);
+      if (!response.includes(element[j].author)){
+        response.push(element[j].author);
+      }
     }
   }
   return response;
